@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(75, 146, 159);
+    }
+
+    header {
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        box-shadow: 0px 6px 20px 0px;
+
+    }
+
+    li {
+        display: inline-block;
+        margin: 20px;
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        position: relative;
+
+    }
+
+    a::before {
+        content: '';
+        background-color: rgb(75, 146, 159);
+        position: absolute;
+        height: 3px;
+        width: 0%;
+        bottom: -3px;
+        left: 0;
+        transition: all 0.4s ease;
+
+    }
+
+    a:hover::before {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <header>
+        <ul>
+            <li><a href="#">Deshboard</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">feedback</a></li>
+        </ul>
+    </header>
+</body>
+
+</html>
