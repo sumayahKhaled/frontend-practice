@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #a98b6f;
+            --bg-color: #f5f5f5;
+            --text-color: #302e4d;
+            --bg2-color: #e1dddd;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            direction: rtl;
+            text-align: right;
+            color: var(--text-color);
+        }
+
+        h1 {
+            color: var(--main-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        .form-control:focus {
+            border-color: var(--main-color);
+            box-shadow: 0 0 5px rgba(240, 180, 40, 0.5);
+        }
+
+        .btn-primary {
+            background-color: var(--main-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--text-color);
+            color: white;
+        }
+
+        .additional-fields {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>تواصل معنا</h1>
+        <div class="form-container">
+            <form>
+                <div class="mb-3">
+                    <label for="formType" class="form-label">نوع الطلب</label>
+                    <select class="form-control" id="formType" required onchange="toggleFields()">
+                        <option value="">اختر نوع الطلب</option>
+                        <option value="complaint">شكوى عن محتوى</option>
+                        <option value="volunteer">تطوع عن محتوى</option>
+                    </select>
+                </div>
+
+                <div class="additional-fields" id="complaintFields">
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label">الاسم الرباعي</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="أدخل اسمك الرباعي" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contactNumber" class="form-label">رقم التواصل</label>
+                        <input type="text" class="form-control" id="contactNumber" placeholder="أدخل رقمك" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="proof" class="form-label">إثبات الحقوق</label>
+                        <input type="file" class="form-control" id="proof" required>
+                    </div>
+                </div>
+
+                <div class="additional-fields" id="volunteerFields">
+                    <div class="mb-3">
+                        <label for="volunteerMessage" class="form-label">رسالة التطوع</label>
+                        <textarea class="form-control" id="volunteerMessage" rows="5" placeholder="أدخل رسالتك" required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">إرسال</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function toggleFields() {
+            var formType = document.getElementById('formType').value;
+            var complaintFields = document.getElementById('complaintFields');
+            var volunteerFields = document.getElementById('volunteerFields');
+
+            complaintFields.style.display = 'none';
+            volunteerFields.style.display = 'none';
+
+            if (formType === 'complaint') {
+                complaintFields.style.display = 'block';
+            } else if (formType === 'volunteer') {
+                volunteerFields.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+
+</html>

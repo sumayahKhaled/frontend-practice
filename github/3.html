@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style: none;
+        text-decoration: none;
+        font-family: "Roboto", sans-serif;
+    }
+
+    :root {
+        --ba-color: #0c0c0c;
+        --text-color: #fff;
+        --main-color: #ae8957;
+
+        --big-font: 6.6rem;
+        --p-font: 1rem;
+    }
+
+    body {
+        background: var(--ba-color);
+        color: var(--text-color);
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        right: 0;
+        z-index: 10000;
+        padding: 35px 7%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: all .50s ease;
+    }
+
+    .logo img {
+        width: 100%;
+        height: auto;
+    }
+
+    ul {
+        display: flex;
+    }
+
+    ul a {
+        display: inline-block;
+        margin: 0 35px;
+        color: var(--text-color);
+        font-size: var(--p-font);
+        transition: all .6s ease;
+    }
+
+    ul a:hover {
+        color: var(--main-color);
+    }
+
+    .right-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-btn {
+        display: inline-block;
+        padding: 9px 24px;
+        background: transparent;
+        border: 2px solid var(--text-color);
+        color: var(--text-color);
+        font-size: 15px;
+        font-weight: 500;
+        transition: all .6s ease;
+    }
+
+    .nav-btn:hover {
+        transform: translateY(-5px);
+        border: 2px solid var(--main-color);
+    }
+
+    .menu-icon {
+        font-size: 42px;
+        z-index: 10001;
+        cursor: pointer;
+        margin-left: 25px;
+        display: none; /* مخفية بشكل افتراضي */
+    }
+
+    section {
+        padding: 0 14%;
+    }
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background: url('img/bg.png');
+        background-size: cover;
+        background-position: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .hero-img img {
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-text h1 {
+        font-size: var(--big-font);
+        font-weight: 900;
+        margin: 15px 0;
+    }
+
+    .hero-text h5 {
+        font-size: 18px;
+        font-weight: 400;
+        letter-spacing: 1px;
+    }
+
+    .hero-text p {
+        width: 100%;
+        max-width: 620px;
+        font-size: var(--p-font);
+        font-weight: 400;
+        line-height: 32px;
+        color: var(--text-color);
+        margin-bottom: 40px;
+    }
+
+    .main-hero {
+        display: flex;
+        align-items: center;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 13px 32px;
+        background: var(--main-color);
+        border: 2px solid transparent;
+        border-radius: 7px;
+        color: var(--text-color);
+        font-size: 15px;
+        font-weight: 500;
+        transition: all .6s ease;
+        margin-right: 20px;
+    }
+
+    .btn:hover {
+        transform: scale(1.1);
+    }
+
+    .price {
+        display: flex;
+        align-items: center;
+        color: var(--text-color);
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .price span {
+        color: var(--main-color);
+        font-size: 17px;
+        font-weight: 400;
+        margin-left: 10px;
+    }
+
+    .icons {
+        position: absolute;
+        top: 50%;
+        padding: 0 7%;
+        transform: translateY(-50%);
+    }
+
+    .icons i {
+        display: block;
+        margin: 35px 0;
+        color: var(--text-color);
+        font-size: 23px;
+        transition: all .6s ease;
+    }
+
+    .icons i:hover {
+        transform: translateY(-5px);
+        color: var(--main-color);
+    }
+
+    .scroll {
+        position: absolute;
+        top: 92%;
+        right: 7%;
+        transform: translateY(-50%);
+    }
+
+    .scroll a {
+        font-size: 16px;
+        color: var(--text-color);
+    }
+
+    .scroll i {
+        font-size: 20px;
+        color: var(--text-color);
+    }
+
+    /* التعديلات للشاشات الصغيرة */
+    @media (max-width:1770px) {
+        header {
+            padding: 22px 4%;
+        }
+
+        .icons {
+            padding: 0 4%;
+        }
+
+        .scroll {
+            right: 4%;
+        }
+    }
+
+    @media (max-width:1670px) {
+        :root {
+            --big-font: 5.5rem;
+            --p-font: 15px;
+        }
+    }
+
+    @media (max-width:1370px) {
+        .icons {
+            display: none;
+        }
+
+        section {
+            padding: 0 4%;
+        }
+    }
+
+    @media (max-width:1150px) {
+        :root {
+            --big-font: 4.6rem;
+        }
+
+        .price {
+            font-size: 20px;
+        }
+
+        .btn {
+            padding: 10px 23px;
+        }
+    }
+
+    @media (max-width:950px) {
+        .menu-icon {
+            display: block; /* تظهر أيقونة القائمة في الشاشات الصغيرة */
+        }
+
+        .navlist {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            padding: 100px 50px;
+            top: 0;
+            right: 0;
+            left: 100%; /* القائمة مخفية خارج الشاشة */
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(32px);
+            transition: all .6s ease-in-out;
+        }
+
+        .navlist a {
+            display: block;
+            padding: 0;
+            margin: 0px 0px 25px 0px;
+            font-size: 1.7rem;
+        }
+
+        /* عند النقر على أيقونة القائمة، يتم إضافة هذا الكلاس يدويًا */
+        .navlist.open {
+            left: 0; /* القائمة تظهر */
+        }
+    }
+
+    @media (max-width:950px) {
+        .scroll {
+            display: none;
+        }
+
+        .hero {
+            grid-template-columns: 1fr;
+            height: auto;
+        }
+
+        .hero-text {
+            padding-top: 130px;
+        }
+
+        .hero-img {
+            height: 500px;
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+
+    @media (max-width:570px) {
+        .hero {
+            height: 100vh;
+        }
+
+        .hero-img {
+            height: 400px;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        :root {
+            --big-font: 4rem;
+        }
+    }
+
+    @media (max-width:440px) {
+        :root {
+            --big-font: 3.4rem;
+        }
+
+        .hero-text {
+            font-size: 15px;
+        }
+
+        .hero-img {
+            height: 360px;
+            width: 360px;
+            margin: 0 auto;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <a href="#" class="logo">
+            <img src="img/logo.png" alt="">
+        </a>
+
+        <ul class="navlist">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Event</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="right-content">
+            <a href="#" class="nav-btn">Sign In</a>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h5>#coffee for hot days</h5>
+            <h1>-cold brew</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br> Accusamus, nemo. Laudantium assumenda
+                ratione,<br> adipisci fugit vitae optio minima sint? Aspernatur aliquid voluptatum <br> totam dolorum id
+                excepturi iste in quis nostrum?</p>
+
+            <div class="main-hero">
+                <a href="#" class="btn">Order New</a>
+                <a href="#" class="price">$16.00 | <span>Regular Price</span></a>
+            </div>
+        </div>
+
+        <div class="hero-img">
+            <img src="img/hero.png" alt="">
+        </div>
+    </section>
+
+    <div class="icons">
+        <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+        <a href="#"><i class='bx bxl-instagram-alt'></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+    </div>
+
+    <div class="scroll">
+        <a href="#"><i class="ri-scroll-to-bottom-fill"> Scroll Down</i></a>
+    </div>
+</body>
+
+</html>

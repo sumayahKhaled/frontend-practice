@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Tajawal:wght@400;500&display=swap');
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* ايش الفرق لما اعمل وحده منهم بس  */
+        background: #c1f7f5;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        padding: 20px 15px;
+        /* مسافه خارجية */
+        border-radius: 12px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-link li {
+        list-style: none;
+        /* حق النقاط */
+        /* justify-content:space-between; */
+        /* why i don't can */
+        margin: 0 10px;
+    }
+
+    .nav-link li a {
+        position: relative;
+        /* what this? */
+        color: #333;
+        font-size: 20px;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 6px 0;
+        /* use padding in under becouse can spas between line and tixt */
+
+    }
+
+    .nav-link li a:before {
+        content: '';
+        position: absolute;
+        height: 3px;
+        width: 0%;
+        background: #34efdf;
+        bottom: 0;
+        /*  thhis has can line in under rhe tixt */
+        left: 0;
+        transition: all 0.4s ease;
+    }
+
+    .nav-link li a:hover:before {
+        width: 100%;
+    }
+
+    /* حركات منوعه  */
+    /*--------------- center------------------- */
+    .nav-link li.center a:before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* ------------------------------------ */
+
+    /*---------------upwardr------------------- */
+    .nav-link li.upward a:before {
+        width: 100%;
+        bottom: -5px;
+        opacity: 0;
+
+    }
+
+    .nav-link li.upward a:hover:before {
+
+        bottom: 0px;
+        opacity: 1;
+
+    }
+
+    /* ------------------------------------ */
+
+    /*---------------forward------------------- */
+    .nav-link li.forward a:before {
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.4s ease;
+
+    }
+
+    .nav-link li.forward a:hover:before {
+
+        transform: scaleX(1);
+        transform-origin: left;
+
+
+    }
+
+    /* ------------------------------------ */
+</style>
+
+<body>
+    <ul class="nav-link">
+        <li><a href="#">Deshboard</a></li>
+        <li class="center "><a href="#">Portfolio</a></li>
+        <li class="upward"><a href="#">Services</a></li>
+        <li class="forward"><a href="#">feedback</a></li>
+    </ul>
+</body>
+
+</html>

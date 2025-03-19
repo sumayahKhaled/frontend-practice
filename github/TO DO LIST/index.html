@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO Do List</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(15, 182, 129);
+      }
+      .container {
+        background-color: rgb(246, 242, 242);
+        width: 300px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      h2 {
+        margin: 20px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        border-radius: 25px;
+        padding: 10px;
+        background-color: rgb(213, 218, 222);
+      }
+      ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: #fff;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s;
+      }
+      input::placeholder {
+        text-align: left;
+        font-size: 10px;
+      }
+      .input-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(213, 218, 222);
+        border-radius: 50px;
+        margin: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 25px;
+        margin-right: 10px;
+        background-color: rgb(255, 226, 7);
+        color: rgb(0, 0, 0);
+        width: 70px;
+        font-weight: bold;
+        transition: background-color 0.5s;
+      }
+      button:hover {
+        background-color: rgb(255, 226, 7);
+        color: rgb(0, 0, 0);
+      }
+      .removeBton {
+        padding: 3px 6px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none !important;
+      }
+      .task-container input[type="checkbox"] {
+        appearance: none; /* إخفاء الـ checkbox الافتراضي */
+        width: 16px;
+        height: 16px;
+        border: 2px solid #ccc;
+        border-radius: 50%; /* جعله دائريًا */
+        cursor: pointer;
+        position: relative;
+      }
+      .task-container input[type="checkbox"]:checked {
+        background-color: rgb(15, 182, 129); /* لون الخلفية عند التحديد */
+        border-color: rgb(15, 182, 129);
+      }
+
+      .task-container input[type="checkbox"]:checked::after {
+        content: "✔"; /* إضافة علامة صح */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 10px;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>TO DO LIST</h2>
+      <div class="input-container">
+        <input type="text" id="task" placeholder="Enter task" />
+        <button id="add" type="button">Add</button>
+      </div>
+      
+      <ul id="list">
+        <!-- تم حذف المهمة الثابتة هنا -->
+      </ul>
+      
+    </div>
+
+    <script>
+      let input = document.getElementById('task');
+      let list = document.getElementById('list');
+   
+
+      document.getElementById('add').addEventListener('click', check);
+
+      function check() {
+        let newTask = input.value;
+
+        if (newTask.trim() === "") {
+          return;
+        }
+
+        let li = document.createElement('li');
+
+        let taskContainer = document.createElement('div');
+        taskContainer.className = 'task-container';
+        taskContainer.style.display = 'flex';
+        taskContainer.style.alignItems = 'center';
+
+        let checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        taskContainer.appendChild(checkbox);
+
+        let taskText = document.createElement('span');
+        taskText.textContent = newTask;
+        taskText.style.marginLeft = '10px';
+        taskContainer.appendChild(taskText);
+
+        li.appendChild(taskContainer);
+
+        let removeBton = document.createElement('button');
+        removeBton.textContent = 'Remove';
+        removeBton.className = 'removeBton';
+        li.appendChild(removeBton);
+
+        removeBton.addEventListener('click', () => {
+          li.remove();
+        });
+
+        checkbox.addEventListener('change', (event) => {
+          if (event.target.checked) {
+            taskText.style.textDecoration = 'line-through'; // تطبيق الخط على النص فقط
+          } else {
+            taskText.style.textDecoration = 'none'; // إزالة الخط من النص
+          }
+        });
+       
+
+        list.appendChild(li);
+        input.value = '';
+      }
+    </script>
+  </body>
+</html>

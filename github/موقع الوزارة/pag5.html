@@ -1,0 +1,105 @@
+هذا هو الكود بعد إزالة التعليقات:  
+
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البلاغات</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #a98b6f;
+            --bg-color: #f5f5f5;
+            --text-color: #302e4d;
+            --bg2-color: #e1dddd;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-color);
+            direction: rtl;
+            text-align: right;
+        }
+
+        h1 {
+            color: var(--main-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .form-container {
+            background-color: var(--bg2-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid var(--bg2-color);
+            padding: 10px;
+        }
+
+        .form-control:focus {
+            border-color: var(--main-color);
+            box-shadow: 0 0 5px rgba(169, 139, 111, 0.5);
+        }
+
+        .btn-primary {
+            background-color: var(--main-color);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--text-color);
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>البلاغات</h1>
+        <div class="form-container">
+            <form>
+                <div class="mb-3">
+                    <label for="reportType" class="form-label">نوع البلاغ</label>
+                    <select class="form-control" id="reportType" required>
+                        <option value="">اختر نوع البلاغ</option>
+                        <option value="security">بلاغ أمني</option>
+                        <option value="maintenance">بلاغ صيانة</option>
+                        <option value="complaint">شكوى</option>
+                        <option value="other">أخرى</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="reportDetails" class="form-label">تفاصيل البلاغ</label>
+                    <textarea class="form-control" id="reportDetails" rows="5" placeholder="أدخل تفاصيل البلاغ" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">إرسال البلاغ</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+```

@@ -1,0 +1,42 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+.contener{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #5f82a0;
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+}
+input{
+    width: 80%;
+    height: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+button{
+  
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+.cal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  
+}
