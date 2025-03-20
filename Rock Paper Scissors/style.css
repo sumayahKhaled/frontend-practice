@@ -1,0 +1,56 @@
+body {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Change font */
+  color: white;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+}
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); */
+}
+
+#score {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.choice {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.choice:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+.choice i {
+  font-size: 60px;
+}
+#result {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-align: center;
+}
